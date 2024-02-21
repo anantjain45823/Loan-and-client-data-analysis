@@ -3,5 +3,5 @@ Problems faced during the case resolution
     a. Tried to check if loan paid till due date is the criteria but not seems os as there is no loans paid after due_date
     b. There also no default loans which have paid_at date which means every default loan resulted in no recovery
 2. No user_emails are provivded for email service so have to assume it
-3. No data about tax or interest paid till date for partial paid loans due which have to calculate if a loan resulted in profit or not from the paid_amount + interest(loan-amount*client.interest) - loan_amount  = profit
+3. No data about tax or interest paid till date for partial paid loans due which have to calculate if a loan resulted in profit or not from the paid_amount - loan_amount  = profit
 4. For Part `Assess the profitability of this operation. Provide an analysis of the operation's timeline` what does `this` means is vague 
