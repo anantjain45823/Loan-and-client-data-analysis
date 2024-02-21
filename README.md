@@ -1,11 +1,11 @@
 # Loan-and-client-data-analysis
 
-This repo contains analysis of loan and client data
+## This repo contains analysis of loan and client data
 Requirements.txt -> all opython libraries which need to be installed 
 problems.txt -> problems faced for doing some particular operations
 clients.csv and loans.csv -> CSV files to perform analysis on
 
-Steps Performed:
+## Steps Performed:
   1. Installing and Importing Libraries
   2. Reading Data from CSV 
   3. Connecting to Postgres DB
@@ -15,8 +15,12 @@ Steps Performed:
      b. SQl and Data Viz. -> Playing with and Visualing data to fetch some answers from SQL tables
      c. Python and infra -> constructing email reminders for loans based upon due_date, generating functions schema for ensuring operations run smoothly
 
-Summary for Analysis :
-### To get the best 10 users I used the following method
+## Some Metrics Calculated:
+ 1. 'left_amount' = 'loan_due_amount' - 'loan_amount_paid' -> Since both include tax and interest
+ 2. 'estimated_profit' = 'client_interest_rate' * 0.01 * 'loan_amount'
+
+## Summary for Analysis :
+  ### To get the best 10 users I used the following method
       #### basic conditions would be (after normalising all the metrics)
             # user_denied = 0 i.e. user status is not denied
             # loan_default_rate = 0.0 i.e. no loans resulted in default
@@ -25,7 +29,7 @@ Summary for Analysis :
       #### Applying weights 
          `average_loan_repayment_time` is inversely proportional to customer quality. hence weight => -1 
          `loan_repaid_to_total_loan`, `actual_profit_till_date` is directly proportional to customer quality
-### To get the worst 10 users I used the following method
+  ### To get the worst 10 users I used the following method
       #### basic conditions would be (after normalising all the metrics)
         # user_denied = 1 i.e. user status is  denied
         # loan_default_rate > 0.5 i.e. more than 50 % loans resulted in default
@@ -34,7 +38,7 @@ Summary for Analysis :
      #### Applying weights 
         # `loan_default_rate`, `average_loan_repayment_time` is inversely proportional to customer quality. hence weight => -1 
         # `loan_repaid_to_total_loan`, `actual_profit_till_date` is directly proportional to customer quality
-### To get batch adherence
+  ### To get batch adherence
      ### Applying Weights
         # more denial_rate, loan_default_rate, amount_under_default_to_total_left_amount, average_loan_repayment_time less better batch hence weighting it with -1
         # Rest are directly proportional to how better a batch is hence multiplying with +1 weight
